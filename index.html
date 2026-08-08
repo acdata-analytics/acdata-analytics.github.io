@@ -199,6 +199,32 @@
     .service-card:hover {
       box-shadow: var(--shadow-blue) 0px 30px 45px -30px, var(--shadow-black) 0px 18px 36px -18px;
     }
+    /* Pricing cards reuse .service-card so the two sections read as one page. */
+    .price {
+      font-size: 2rem; font-weight: 600; color: var(--navy);
+      margin: 4px 0 14px; letter-spacing: -0.02em;
+    }
+    .price span { font-size: 0.9rem; font-weight: 400; color: var(--slate); }
+    .pack-list { list-style: none; padding: 0; margin: 18px 0; }
+    .pack-list li {
+      position: relative; padding-left: 22px; margin-bottom: 9px;
+      font-size: 0.93rem; color: var(--dark-slate); line-height: 1.5;
+    }
+    .pack-list li::before {
+      content: "\2713"; position: absolute; left: 0;
+      color: var(--purple); font-weight: 600;
+    }
+    .pack-note { font-size: 0.86rem; color: var(--slate); margin-bottom: 22px; }
+    .pack-cta {
+      display: inline-block; background: var(--purple); color: var(--white);
+      padding: 11px 22px; border-radius: 6px; text-decoration: none;
+      font-weight: 500; font-size: 0.94rem; transition: background 0.2s;
+    }
+    .pack-cta:hover { background: var(--purple-hover); }
+    .pack-disclaimer {
+      max-width: 1080px; margin: 34px auto 0; font-size: 0.84rem;
+      line-height: 1.6; color: var(--slate); text-align: center;
+    }
     .service-icon {
       width: 40px;
       height: 40px;
@@ -326,6 +352,7 @@
     <div class="nav-logo">AC Data Analytics</div>
     <div class="nav-links">
       <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
       <a href="#expertise">Expertise</a>
       <a href="#contact" class="btn btn-primary">Contact us</a>
     </div>
@@ -337,7 +364,7 @@
   <p>AC Data Analytics delivers IT consultancy, data processing, and hosting solutions. We build the pipelines, platforms, and intelligence that power modern business.</p>
   <div class="hero-buttons">
     <a href="#contact" class="btn btn-primary" style="padding: 10px 20px; font-size: 16px;">Start a conversation</a>
-    <a href="#services" class="btn btn-ghost" style="padding: 10px 20px; font-size: 16px;">Explore services</a>
+    <a href="#pricing" class="btn btn-ghost" style="padding: 10px 20px; font-size: 16px;">See prices</a>
   </div>
 </header>
 
@@ -362,6 +389,67 @@
       <p>Cloud architecture, managed hosting, CI/CD pipelines, and monitoring. Your data workloads run reliably, securely, and cost-effectively.</p>
     </div>
   </div>
+</section>
+
+<!-- Fixed-price products. These exist so somebody can decide to buy without a
+     call, a quote or a meeting — the whole business is built around not needing
+     those. Prices here MUST match send_outreach.py and replies.py;
+     compliance_check.py fails the build if they drift apart. -->
+<section id="pricing">
+  <div class="section-label">Fixed price</div>
+  <h2 class="section-title">Packages</h2>
+  <p class="section-subtitle">No hourly rates, no meetings, no quotes. You know the price before you get in touch.</p>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">&#9878;</div>
+      <h3>Compliance starter pack</h3>
+      <p class="price">&pound;199 <span>one-off</span></p>
+      <p>For a new limited company that needs its data protection paperwork done properly, first time.</p>
+      <ul class="pack-list">
+        <li>Privacy notice for your website &mdash; ready-to-upload HTML and plain text</li>
+        <li>ICO registration walkthrough with your details already filled in</li>
+        <li>Your record of processing activities (the Article&nbsp;30 written record)</li>
+        <li>Trading disclosures checklist, with footer and signature text ready to paste</li>
+        <li>A plain-English note explaining what to do with each piece</li>
+      </ul>
+      <p class="pack-note">Built from your public Companies House record, so there is nothing for you to fill in. Normally same or next working day.</p>
+      <a class="pack-cta" href="mailto:andrew.carter@acdata-analytics.co.uk?subject=Compliance%20starter%20pack&amp;body=Please%20send%20me%20the%20compliance%20starter%20pack.%0A%0AMy%20company%20number%20is%3A%20">Order the pack</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">&#9729;</div>
+      <h3>Website, domain &amp; email</h3>
+      <p class="price">&pound;399 <span>one-off</span></p>
+      <p>A real one-page site, your own domain, and a business email address that isn't a Gmail account.</p>
+      <ul class="pack-list">
+        <li>Domain registered in your company's name</li>
+        <li>One-page website, written and built for you</li>
+        <li>Business email on your own domain</li>
+        <li>Privacy notice and trading disclosures included</li>
+      </ul>
+      <p class="pack-note">First year of domain and hosting included. You own the domain outright.</p>
+      <a class="pack-cta" href="mailto:andrew.carter@acdata-analytics.co.uk?subject=Website%2C%20domain%20and%20email&amp;body=I%27d%20like%20the%20website%20package.%0A%0AMy%20company%20number%20is%3A%20">Order a website</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">&#9200;</div>
+      <h3>Deadline monitoring</h3>
+      <p class="price">&pound;15 <span>per month</span></p>
+      <p>Nobody misses a Companies House deadline on purpose. They miss it because nothing reminded them.</p>
+      <ul class="pack-list">
+        <li>Accounts and confirmation statement dates watched continuously</li>
+        <li>ICO registration renewal tracked</li>
+        <li>Email alert when a filing date approaches</li>
+        <li>Alert if your registered office changes on the public register</li>
+      </ul>
+      <p class="pack-note">Cancel any time. No minimum term.</p>
+      <a class="pack-cta" href="mailto:andrew.carter@acdata-analytics.co.uk?subject=Deadline%20monitoring&amp;body=I%27d%20like%20deadline%20monitoring.%0A%0AMy%20company%20number%20is%3A%20">Start monitoring</a>
+    </div>
+
+  </div>
+  <p class="pack-disclaimer">All packages are document preparation and setup. We are not solicitors and none of this is legal advice. No pack from anyone makes a company &ldquo;GDPR compliant&rdquo; &mdash; compliance is something you do. These get the paperwork right so that is the only part left to think about.<br>
+  Payment is by bank transfer against an invoice. You see the invoice before anything starts.</p>
 </section>
 
 <div class="dark-section" id="expertise">
